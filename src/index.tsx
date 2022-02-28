@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./App.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./views/Home";
@@ -13,7 +14,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/Buses" element={<Home />}></Route>
-        <Route path="/Stops" element={<Stops />} />
+        <Route path="/Paradas" element={<Stops />} />
       </Routes>
     </BrowserRouter>
   );

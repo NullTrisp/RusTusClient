@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../App.css";
 import Bus, { IBus } from "../components/Bus";
 import constants from "../constants";
 export default function Home() {
