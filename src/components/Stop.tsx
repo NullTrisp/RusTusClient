@@ -1,4 +1,4 @@
-import Table, { ITableData } from "./Table/Table";
+import Table from "./Table/Table";
 
 export interface IStop {
   id: number;
@@ -15,7 +15,7 @@ export interface IStops {
 export default function Stop(data: IStops) {
   return (
     <Table
-      tHeaders={["ID", "Dirección", "Latitud", "Logitud", "Numero"]}
+      tHeaders={["ID", "Dirección", "Nombre", "Latitud", "Logitud", "Numero"]}
       tBody={data.stops
         .map((stop) => {
           return {
@@ -23,6 +23,7 @@ export default function Stop(data: IStops) {
             items: [
               stop.id.toString(),
               stop.direction,
+              stop.name,
               stop.latitude.toString(),
               stop.longitude.toString(),
               stop.number.toString(),
