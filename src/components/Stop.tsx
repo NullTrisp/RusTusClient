@@ -1,4 +1,4 @@
-import Table from "./Table/Table";
+import Table, { ITableData } from "./Table/Table";
 
 export interface IStop {
   id: number;
@@ -8,9 +8,30 @@ export interface IStop {
   longitude: number;
   number: number;
 }
+export interface IStops {
+  stops: IStop[];
+}
 
-export default function Stop(stops: IStop[]) {
-  return <Table headers={["ID", "Nombre"]}></Table>;
+export default function Stop(data: IStops) {
+  return (
+    <Table
+      tHeaders={["ID", "Dirección", "Latitud", "Logitud", "Numero"]}
+      tBody={data.stops
+        .map((stop) => {
+          return {
+            id: stop.id,
+            items: [
+              stop.id.toString(),
+              stop.direction,
+              stop.latitude.toString(),
+              stop.longitude.toString(),
+              stop.number.toString(),
+            ],
+          };
+        })
+        .flatMap((el) => el)}
+    />
+  );
   // return (
   //   <table>
   //     <thead>

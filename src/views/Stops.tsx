@@ -20,7 +20,7 @@ export default function Stops() {
   }, []);
 
   if (stops && stops.length > 0) {
-    return <Stop {...stops} />;
+    return <Stop stops={stops} />;
   } else {
     return <h1>loading...</h1>;
   }

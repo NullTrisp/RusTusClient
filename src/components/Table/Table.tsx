@@ -2,23 +2,28 @@ import TableHead from "./TableHead";
 import TableRow from "./TableRow";
 
 export interface ITableData {
-  id: Number;
+  id: number;
   items: string[];
 }
 
-export default function Table<T>(theadData: string[], tbodyData: ITableData[]) {
+export interface ITable {
+  tHeaders: string[];
+  tBody: ITableData[];
+}
+
+export default function Table(table: ITable) {
   return (
-    <table>
+    <table className="table">
       <thead>
         <tr>
-          {theadData.map((h, i) => {
+          {table.tHeaders.map((h, i) => {
             return <TableHead key={i} item={h} />;
           })}
         </tr>
       </thead>
       <tbody>
-        {tbodyData.map((item) => (
-          <TableRow data={item.items} />
+        {table.tBody.map((item) => (
+          <TableRow key={item.id} data={item.items} />
         ))}
       </tbody>
     </table>

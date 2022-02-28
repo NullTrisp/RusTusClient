@@ -1,7 +1,10 @@
-export default function TableRow(data: string[]) {
+export interface ITableRow {
+  data: string[];
+}
+export default function TableRow(tableRow: ITableRow) {
   return (
     <tr>
-      {data.map((item, i) => {
+      {tableRow.data.map((item, i) => {
         return <td key={i}>{item}</td>;
       })}
     </tr>
